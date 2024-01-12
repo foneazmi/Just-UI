@@ -5,6 +5,7 @@ import { View } from "react-native";
 import { ShoppingStoreHomePage } from "./pages/home";
 import { navigator } from "~/helpers";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { ShoppingStoreBlankPage } from "./pages/blank";
 
 const Tab = createBottomTabNavigator();
 
@@ -81,8 +82,8 @@ export const ShoppingStoreScreen = () => {
       tabBar={(props) => <MyTabBar {...props} />}
     >
       <Tab.Screen name="home" component={ShoppingStoreHomePage} />
-      <Tab.Screen name="bag" component={ShoppingStoreHomePage} />
-      <Tab.Screen name="app" component={ShoppingStoreHomePage} />
+      <Tab.Screen name="bag" component={ShoppingStoreBlankPage} />
+      <Tab.Screen name="app" component={ShoppingStoreBlankPage} />
       <Tab.Screen name="back" component={ShoppingStoreHomePage} />
     </Tab.Navigator>
   );
