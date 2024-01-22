@@ -1,5 +1,5 @@
 import React, { useCallback } from "react";
-import { Pressable } from "react-native";
+import { Platform, Pressable } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { View } from "react-native";
 import { ShoppingStoreHomePage } from "./pages/home";
@@ -33,7 +33,8 @@ const MyTabBar = ({ state, descriptors, navigation }) => {
         borderColor: "#F0F0F0",
         borderWidth: 1,
         backgroundColor: "white",
-        height: 60,
+        paddingTop: 16,
+        paddingBottom: Platform.OS === "ios" ? 36 : 16,
       }}
     >
       {state.routes.map((route, index) => {
@@ -84,7 +85,7 @@ export const ShoppingStoreScreen = () => {
       <Tab.Screen name="home" component={ShoppingStoreHomePage} />
       <Tab.Screen name="bag" component={ShoppingStoreBlankPage} />
       <Tab.Screen name="app" component={ShoppingStoreBlankPage} />
-      <Tab.Screen name="back" component={ShoppingStoreHomePage} />
+      <Tab.Screen name="back" component={ShoppingStoreBlankPage} />
     </Tab.Navigator>
   );
 };

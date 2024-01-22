@@ -128,7 +128,7 @@ const Item = () => {
       />
       <View>
         <Text style={{ fontWeight: "700", fontSize: 12 }}>Some T-shirt</Text>
-        <Text style={{ fontWeight: "bold" }}>Rp. 100,000</Text>
+        <Text>Rp. 100,000</Text>
       </View>
     </View>
   );
