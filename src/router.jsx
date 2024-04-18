@@ -4,10 +4,10 @@ import {
   HelloAnimationScreen,
   ComingSoonScreen,
   JustUIScreen,
-  SharedElementScreen,
-  SharedElementDetailScreen,
   LinkAjaScreen,
   ShoppingStoreScreen,
+  ParallaxCarouselOneScreen,
+  ParallaxCarouselTwoScreen,
 } from "./ui/screens";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
@@ -25,13 +25,16 @@ export const AppRouter = () => {
         <Stack.Screen name="just-ui" component={JustUIScreen} />
         <Stack.Screen name="hello-animation" component={HelloAnimationScreen} />
         <Stack.Screen name="coming-soon" component={ComingSoonScreen} />
-        <Stack.Screen name="shared-element" component={SharedElementScreen} />
-        <Stack.Screen
-          name="shared-element-detail"
-          component={SharedElementDetailScreen}
-        />
         <Stack.Screen name="link-aja" component={LinkAjaScreen} />
         <Stack.Screen name="shopping-store" component={ShoppingStoreScreen} />
+        <Stack.Screen
+          name="parallax-carousel-1"
+          component={ParallaxCarouselOneScreen}
+        />
+        <Stack.Screen
+          name="parallax-carousel-2"
+          component={ParallaxCarouselTwoScreen}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

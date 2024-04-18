@@ -8,6 +8,7 @@ interface Props {
   children: ReactNode;
   style?: ViewStyle;
   overflow?: Boolean;
+  barStyle?: "dark" | "light";
 }
 export const Layout = (props: Props) => {
   return (
@@ -20,7 +21,11 @@ export const Layout = (props: Props) => {
         props?.style,
       ]}
     >
-      <StatusBar style="dark" backgroundColor="transparent" translucent />
+      <StatusBar
+        style={props.barStyle || "dark"}
+        backgroundColor="transparent"
+        translucent
+      />
       <View
         style={{
           flex: 1,

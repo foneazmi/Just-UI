@@ -13,7 +13,7 @@
     "@react-navigation/bottom-tabs": "^6.5.20",
     "@react-navigation/native": "^6.1.17",
     "@react-navigation/native-stack": "^6.9.26",
-    "expo": "^50.0.14",
+    "expo": "~50.0.17",
     "expo-secure-store": "~12.8.1",
     "expo-status-bar": "~1.11.1",
     "lodash": "^4.17.21",
@@ -26,9 +26,9 @@
     "zustand": "^4.5.2"
   },
   "devDependencies": {
-    "@babel/core": "^7.24.3",
-    "@types/react": "~18.2.69",
-    "typescript": "^5.4.3"
+    "@babel/core": "^7.24.4",
+    "@types/react": "~18.2.79",
+    "typescript": "^5.4.5"
   },
   "private": true
 }

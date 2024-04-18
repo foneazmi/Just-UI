@@ -4,14 +4,7 @@ import { Layout } from "~/ui/components";
 import { navigator } from "~/helpers";
 
 const DATA = [
-  // {
-  //   title: "Hello Animation",
-  //   route: "hello-animation",
-  // },
-  // {
-  //   title: "Shared Element",
-  //   route: "shared-element",
-  // },
+  //
   {
     title: "Link Aja (Old UI)",
     route: "link-aja",
@@ -23,6 +16,14 @@ const DATA = [
   {
     title: "Coming Soon",
     route: "coming-soon",
+  },
+  {
+    title: "Parallax Carousel 2",
+    route: "parallax-carousel-1",
+  },
+  {
+    title: "Parallax Carousel 2",
+    route: "parallax-carousel-2",
   },
 ];
 
@@ -54,7 +55,10 @@ export const JustUIScreen = () => {
               padding: 16,
             }}
           >
-            <Text style={{ color: "#191717", textAlign: "center" }}>
+            <Text
+              numberOfLines={1}
+              style={{ color: "#191717", textAlign: "center" }}
+            >
               {item.title}
             </Text>
           </Pressable>
