@@ -8,6 +8,8 @@ import {
   ShoppingStoreScreen,
   ParallaxCarouselOneScreen,
   ParallaxCarouselTwoScreen,
+  FlatListAnimationOneScreen,
+  FlatListAnimationTwoScreen,
 } from "./ui/screens";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
@@ -34,6 +36,14 @@ export const AppRouter = () => {
         <Stack.Screen
           name="parallax-carousel-2"
           component={ParallaxCarouselTwoScreen}
+        />
+        <Stack.Screen
+          name="flat-list-animation-1"
+          component={FlatListAnimationOneScreen}
+        />
+        <Stack.Screen
+          name="flat-list-animation-2"
+          component={FlatListAnimationTwoScreen}
         />
       </Stack.Navigator>
     </NavigationContainer>

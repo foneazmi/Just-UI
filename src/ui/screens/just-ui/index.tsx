@@ -13,10 +13,10 @@ const DATA = [
     title: "Shopping Store",
     route: "shopping-store",
   },
-  {
-    title: "Coming Soon",
-    route: "coming-soon",
-  },
+  // {
+  //   title: "Coming Soon",
+  //   route: "coming-soon",
+  // },
   {
     title: "Parallax Carousel 2",
     route: "parallax-carousel-1",
@@ -24,6 +24,14 @@ const DATA = [
   {
     title: "Parallax Carousel 2",
     route: "parallax-carousel-2",
+  },
+  {
+    title: "FlatList Animation 1",
+    route: "flat-list-animation-1",
+  },
+  {
+    title: "FlatList Animation 2",
+    route: "flat-list-animation-2",
   },
 ];
 
