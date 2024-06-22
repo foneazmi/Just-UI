@@ -1,6 +1,6 @@
 import React, { useCallback } from "react";
 import { Platform, Pressable } from "react-native";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { Feather } from "@expo/vector-icons";
 import { View } from "react-native";
 import { ShoppingStoreHomePage } from "./pages/home";
 import { navigator } from "~/helpers";
@@ -10,18 +10,16 @@ import { ShoppingStoreBlankPage } from "./pages/blank";
 const Tab = createBottomTabNavigator();
 
 const Icon = (props) => {
-  const { isFocused, route, color } = props;
+  const { route, color } = props;
 
   const att = {
-    home: isFocused ? "home-variant" : "home-variant-outline",
-    app: isFocused ? "apps-box" : "apps",
-    bag: isFocused ? "shopping" : "shopping-outline",
-    back: isFocused
-      ? "arrow-left-drop-circle"
-      : "arrow-left-drop-circle-outline",
+    home: "home",
+    app: "box",
+    bag: "shopping-bag",
+    back: "arrow-left",
   };
 
-  return <MaterialCommunityIcons name={att[route]} color={color} size={24} />;
+  return <Feather name={att[route]} color={color} size={24} />;
 };
 
 const MyTabBar = ({ state, descriptors, navigation }) => {
@@ -64,11 +62,7 @@ const MyTabBar = ({ state, descriptors, navigation }) => {
             onPress={onPress}
             style={{ flex: 1, justifyContent: "center", alignItems: "center" }}
           >
-            <Icon
-              route={route.name}
-              isFocused={isFocused}
-              color={isFocused ? "black" : "gray"}
-            />
+            <Icon route={route.name} color={isFocused ? "black" : "gray"} />
           </Pressable>
         );
       })}

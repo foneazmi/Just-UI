@@ -2,11 +2,11 @@ import { create } from "zustand";
 import { persist } from "zustand/middleware";
 import { zustandStorage } from "../helpers/storage";
 
-export const useAppStore = create(
+export const useApp = create(
   persist(
     (set) => ({
-      darkMode: true,
-      setDarkMode: (darkMode) => set({ darkMode }),
+      paths: [],
+      setPaths: (paths) => set({ paths }),
     }),
     {
       name: "app",

@@ -1,5 +1,5 @@
 import { memo, useState } from "react";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { Feather } from "@expo/vector-icons";
 import {
   FlatList,
   Image,
@@ -21,12 +21,12 @@ const Header = memo(() => (
     <View style={{ gap: 4, flex: 1 }}>
       <Text style={{ color: "gray" }}>Location</Text>
       <View style={{ flexDirection: "row", alignItems: "center", gap: 4 }}>
-        <MaterialCommunityIcons name="map-marker" size={20} />
+        <Feather name="map-pin" size={16} />
         <Text style={{ fontWeight: "600" }}>Cairo, Egypt</Text>
-        <MaterialCommunityIcons name="chevron-down" size={20} />
+        <Feather name="chevron-down" size={16} />
       </View>
     </View>
-    <MaterialCommunityIcons name="bell-outline" size={24} />
+    <Feather name="bell" size={24} />
   </View>
 ));
 
@@ -111,7 +111,7 @@ const SearchButton = memo(() => (
       backgroundColor: "#F5F5F5",
     }}
   >
-    <MaterialCommunityIcons name="magnify" size={20} />
+    <Feather name="search" size={20} />
     <Text>Search Here</Text>
   </View>
 ));

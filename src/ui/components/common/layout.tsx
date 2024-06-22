@@ -3,12 +3,14 @@ import { View, ViewStyle } from "react-native";
 
 import Constants from "expo-constants";
 import { StatusBar } from "expo-status-bar";
+import { Back } from "./back";
 
 interface Props {
   children: ReactNode;
   style?: ViewStyle;
   overflow?: Boolean;
   barStyle?: "dark" | "light";
+  back?: Boolean;
 }
 export const Layout = (props: Props) => {
   return (
@@ -26,13 +28,8 @@ export const Layout = (props: Props) => {
         backgroundColor="transparent"
         translucent
       />
-      <View
-        style={{
-          flex: 1,
-        }}
-      >
-        {props.children}
-      </View>
+      {props.back && <Back />}
+      {props.children}
     </View>
   );
 };

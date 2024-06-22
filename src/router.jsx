@@ -1,51 +1,103 @@
-import React from "react";
-import { navigationRef } from "./helpers";
+import { memo, useEffect, useMemo } from "react";
 import {
-  HelloAnimationScreen,
   ComingSoonScreen,
-  JustUIScreen,
   LinkAjaScreen,
   ShoppingStoreScreen,
   ParallaxCarouselOneScreen,
   ParallaxCarouselTwoScreen,
   FlatListAnimationOneScreen,
   FlatListAnimationTwoScreen,
+  HelloAnimationOneScreen,
+  HelloAnimationTwoScreen,
+  JustUIScreen,
+  HelloAnimationThreeScreen,
 } from "./ui/screens";
-import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { useApp } from "./stores";
 const Stack = createNativeStackNavigator();
 
-export const AppRouter = () => {
+const routes = [
+  {
+    hide: true,
+    path: "just-ui",
+    component: JustUIScreen,
+  },
+  {
+    title: "Link Aja (Old UI)",
+    path: "link-aja",
+    component: LinkAjaScreen,
+  },
+  {
+    title: "Shopping Store",
+    path: "shopping-store",
+    component: ShoppingStoreScreen,
+  },
+  {
+    title: "Parallax Carousel 1",
+    path: "parallax-carousel-1",
+    component: ParallaxCarouselOneScreen,
+  },
+  {
+    title: "Parallax Carousel 2",
+    path: "parallax-carousel-2",
+    component: ParallaxCarouselTwoScreen,
+  },
+  {
+    title: "FlatList Animation 1",
+    path: "flat-list-animation-1",
+    component: FlatListAnimationOneScreen,
+  },
+  {
+    title: "FlatList Animation 2",
+    path: "flat-list-animation-2",
+    component: FlatListAnimationTwoScreen,
+  },
+  {
+    title: "Hello Animation 1",
+    path: "hello-animation-one",
+    component: HelloAnimationOneScreen,
+  },
+  {
+    title: "Hello Animation 2",
+    path: "hello-animation-two",
+    component: HelloAnimationTwoScreen,
+  },
+  {
+    title: "Hello Animation 3",
+    path: "hello-animation-three",
+    component: HelloAnimationThreeScreen,
+  },
+  {
+    title: "Coming Soon",
+    path: "coming-soon",
+    component: ComingSoonScreen,
+  },
+];
+
+export const Router = memo(() => {
+  const { setPaths } = useApp();
+
+  useEffect(() => {
+    const paths = routes
+      .filter((route) => !route.hide)
+      .map((route) => ({ title: route.title, path: route.path }));
+    setPaths(paths);
+  }, [routes]);
+
   return (
-    <NavigationContainer ref={navigationRef}>
-      <Stack.Navigator
-        screenOptions={{
-          headerShown: false,
-          animation: "fade",
-        }}
-      >
-        <Stack.Screen name="just-ui" component={JustUIScreen} />
-        <Stack.Screen name="hello-animation" component={HelloAnimationScreen} />
-        <Stack.Screen name="coming-soon" component={ComingSoonScreen} />
-        <Stack.Screen name="link-aja" component={LinkAjaScreen} />
-        <Stack.Screen name="shopping-store" component={ShoppingStoreScreen} />
+    <Stack.Navigator
+      screenOptions={{
+        headerShown: false,
+        animation: "fade",
+      }}
+    >
+      {routes.map((route) => (
         <Stack.Screen
-          name="parallax-carousel-1"
-          component={ParallaxCarouselOneScreen}
+          name={route.path}
+          component={route.component}
+          key={route.path}
         />
-        <Stack.Screen
-          name="parallax-carousel-2"
-          component={ParallaxCarouselTwoScreen}
-        />
-        <Stack.Screen
-          name="flat-list-animation-1"
-          component={FlatListAnimationOneScreen}
-        />
-        <Stack.Screen
-          name="flat-list-animation-2"
-          component={FlatListAnimationTwoScreen}
-        />
-      </Stack.Navigator>
-    </NavigationContainer>
+      ))}
+    </Stack.Navigator>
   );
-};
+});

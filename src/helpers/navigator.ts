@@ -1,33 +1,34 @@
-import React from 'react';
+import { createRef } from "react";
 import {
   CommonActions,
   StackActions,
   DrawerActions,
   TabActions,
-} from '@react-navigation/native';
+} from "@react-navigation/native";
+import type { NavigationContainerRef } from "@react-navigation/native";
 
-export const navigationRef = React.createRef();
+export const navigationRef = createRef<NavigationContainerRef<any>>();
 
 ///CommonActions
-const navigate = (...args) => {
+const navigate = (...args: Parameters<typeof CommonActions.navigate>) => {
   navigationRef.current?.dispatch(CommonActions.navigate(...args));
 };
-const reset = (...args) => {
-  navigationRef.current?.dispatch(CommonActions.reset({...args}));
+const reset = (...args: Parameters<typeof CommonActions.reset>) => {
+  navigationRef.current?.dispatch(CommonActions.reset(...args));
 };
 const goBack = () => {
   navigationRef.current?.dispatch(CommonActions.goBack());
 };
 
-const setParams = (...args) => {
-  navigationRef.current?.dispatch(CommonActions.setParams({...args}));
+const setParams = (...args: Parameters<typeof CommonActions.setParams>) => {
+  navigationRef.current?.dispatch(CommonActions.setParams({ ...args }));
 };
 
 ///StackActions
-const replace = (...args) => {
+const replace = (...args: Parameters<typeof StackActions.replace>) => {
   navigationRef.current?.dispatch(StackActions.replace(...args));
 };
-const push = (...args) => {
+const push = (...args: Parameters<typeof StackActions.push>) => {
   navigationRef.current?.dispatch(StackActions.push(...args));
 };
 const pop = (count = 1) => {
@@ -47,19 +48,19 @@ const closeDrawer = () => {
 const toggleDrawer = () => {
   navigationRef.current?.dispatch(DrawerActions.toggleDrawer());
 };
-const drawerJumpTo = () => {
-  navigationRef.current?.dispatch(DrawerActions.jumpTo());
+const drawerJumpTo = (...args: Parameters<typeof DrawerActions.jumpTo>) => {
+  navigationRef.current?.dispatch(DrawerActions.jumpTo(...args));
 };
 
 ///TabActions
-const jumpTo = (...args) => {
+const jumpTo = (...args: Parameters<typeof TabActions.jumpTo>) => {
   navigationRef.current?.dispatch(TabActions.jumpTo(...args));
 };
 
 ///CustomActions
-const resetTo = (name, index = 0) => {
+const resetTo = (name: string, index = 0) => {
   navigationRef.current?.dispatch(
-    CommonActions.reset({index, routes: [{name}]}),
+    CommonActions.reset({ index, routes: [{ name }] })
   );
 };
 
